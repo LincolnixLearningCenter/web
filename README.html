@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Lincolnix Learning Center (web)</title>
-<!-- 2014-06-24 Tue 14:40 -->
+<!-- 2014-06-24 Tue 14:47 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="AnderSon" />
@@ -195,15 +195,28 @@ student communication.
 <h4 id="sec-3-1-1">Page</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <ul class="org-ul">
-<li><code>[&#xa0;]</code> Create Static Pages
+<li><code>[X]</code> Create Static Pages
 
 <p>
 <a href="http://www.railstutorial.org/book/static_pages">http://www.railstutorial.org/book/static_pages</a>
 </p>
+
+<ul class="org-ul">
+<li><code>[X]</code> Generate a Pages controller
+
+<p>
+<a href="./app/controllers/pages_controller.rb">./app/controllers/pages_controller.rb</a>
+<a href="./config/routes.rb">./config/routes.rb</a>
+</p>
+
+<pre class="example">
+rails g controller Pages home
+</pre>
+</li>
+</ul>
 </li>
 </ul>
 </div>
-
 
 
 
@@ -271,7 +284,7 @@ config.action_mailer.default_url_options = { host: 'gensched.herokuapp.com' }
 </p>
 
 <pre class="example">
-root 'pages#index'
+root 'pages#home'
 </pre>
 
 <p>

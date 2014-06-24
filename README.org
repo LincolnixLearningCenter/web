@@ -33,11 +33,17 @@
 
 *** Page
 
-    - [ ] Create Static Pages
+    - [X] Create Static Pages
 
       http://www.railstutorial.org/book/static_pages
 
-      
+      - [X] Generate a Pages controller
+
+	[[./app/controllers/pages_controller.rb]]
+	[[./config/routes.rb]]
+
+	: rails g controller Pages home
+
 
 
 **** attributes/actions
@@ -78,7 +84,7 @@
 
 	   [[./config/routes.rb]]
 
-	   : root 'pages#index'
+	   : root 'pages#home'
 
 	   [[./app/views/pages/index.html.erb]]
 
