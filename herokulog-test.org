@@ -1,0 +1,101 @@
+2014-06-24T18:22:59.797054+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.1.0/lib/rails/application.rb:144:in `call'
+2014-06-24T18:22:59.797058+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+2014-06-24T18:22:59.797052+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.1.0/lib/rails/engine.rb:514:in `call'
+2014-06-24T18:22:59.797063+00:00 app[web.1]: 
+2014-06-24T18:22:59.797051+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+2014-06-24T18:22:59.797057+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+2014-06-24T18:22:59.797055+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+2014-06-24T18:22:59.797062+00:00 app[web.1]:   vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+2014-06-24T18:22:59.797061+00:00 app[web.1]:   vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+2014-06-24T18:22:59.797065+00:00 app[web.1]: 
+2014-06-24T18:24:55+00:00 heroku[slug-compiler]: Slug compilation started
+2014-06-24T18:25:24+00:00 heroku[slug-compiler]: Slug compilation finished
+2014-06-24T18:25:24.424261+00:00 heroku[api]: Deploy 708d635 by son@lincolnix.net
+2014-06-24T18:25:24.874158+00:00 heroku[web.1]: State changed from up to starting
+2014-06-24T18:25:24.424391+00:00 heroku[api]: Release v7 created by son@lincolnix.net
+2014-06-24T18:25:28.183498+00:00 app[web.1]: [2014-06-24 18:25:28] FATAL SignalException: SIGTERM
+2014-06-24T18:25:28.183518+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.1.0/gems/railties-4.1.0/lib/rails/commands/commands_tasks.rb:76:in `server'
+2014-06-24T18:25:28.183503+00:00 app[web.1]: 	/app/vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:170:in `select'
+2014-06-24T18:25:28.183520+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.1.0/gems/railties-4.1.0/lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+2014-06-24T18:25:28.183505+00:00 app[web.1]: 	/app/vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:170:in `block in start'
+2014-06-24T18:25:28.183521+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.1.0/gems/railties-4.1.0/lib/rails/commands.rb:17:in `<top (required)>'
+2014-06-24T18:25:28.183512+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/server.rb:264:in `start'
+2014-06-24T18:25:28.183508+00:00 app[web.1]: 	/app/vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:160:in `start'
+2014-06-24T18:25:28.183524+00:00 app[web.1]: 	bin/rails:8:in `<main>'
+2014-06-24T18:25:28.183517+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.1.0/gems/railties-4.1.0/lib/rails/commands/commands_tasks.rb:76:in `tap'
+2014-06-24T18:25:28.183523+00:00 app[web.1]: 	bin/rails:8:in `require'
+2014-06-24T18:25:28.183510+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/handler/webrick.rb:14:in `run'
+2014-06-24T18:25:28.183507+00:00 app[web.1]: 	/app/vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:32:in `start'
+2014-06-24T18:25:28.183694+00:00 app[web.1]: Exiting
+2014-06-24T18:25:28.183515+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.1.0/gems/railties-4.1.0/lib/rails/commands/commands_tasks.rb:81:in `block in server'
+2014-06-24T18:25:28.183634+00:00 app[web.1]: [2014-06-24 18:25:28] INFO  WEBrick::HTTPServer#start done.
+2014-06-24T18:25:28.183513+00:00 app[web.1]: 	/app/vendor/bundle/ruby/2.1.0/gems/railties-4.1.0/lib/rails/commands/server.rb:69:in `start'
+2014-06-24T18:25:28.183549+00:00 app[web.1]: [2014-06-24 18:25:28] INFO  going to shutdown ...
+2014-06-24T18:25:29.186019+00:00 heroku[web.1]: Starting process with command `bin/rails server -p 46956 -e production`
+2014-06-24T18:25:27.578527+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2014-06-24T18:25:29.843365+00:00 heroku[web.1]: Process exited with status 143
+2014-06-24T18:25:33.624734+00:00 app[web.1]: [2014-06-24 18:25:33] INFO  WEBrick 1.3.1
+2014-06-24T18:25:33.624759+00:00 app[web.1]: [2014-06-24 18:25:33] INFO  ruby 2.1.2 (2014-05-08) [x86_64-linux]
+2014-06-24T18:25:33.625167+00:00 app[web.1]: [2014-06-24 18:25:33] INFO  WEBrick::HTTPServer#start: pid=2 port=46956
+2014-06-24T18:25:33.861343+00:00 heroku[web.1]: State changed from starting to up
+2014-06-24T18:25:35.204287+00:00 app[web.1]: 
+2014-06-24T18:25:35.204379+00:00 app[web.1]:   vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+2014-06-24T18:25:35.204343+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/activesupport-4.1.0/lib/active_support/tagged_logging.rb:26:in `tagged'
+2014-06-24T18:25:35.204362+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/actionpack-4.1.0/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+2014-06-24T18:25:35.204294+00:00 app[web.1]: ActionController::RoutingError (No route matches [GET] "/"):
+2014-06-24T18:25:35.204382+00:00 app[web.1]:   vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+2014-06-24T18:25:35.204374+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+2014-06-24T18:25:35.204383+00:00 app[web.1]: 
+2014-06-24T18:25:35.117474+00:00 app[web.1]: => Ctrl-C to shutdown server
+2014-06-24T18:25:35.204315+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.1.0/lib/rails/rack/logger.rb:38:in `call_app'
+2014-06-24T18:25:35.204367+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/activesupport-4.1.0/lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+2014-06-24T18:25:35.204370+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+2014-06-24T18:25:35.204296+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/actionpack-4.1.0/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+2014-06-24T18:25:35.215749+00:00 heroku[router]: at=info method=GET path="/" host=lincolnixweb.herokuapp.com request_id=17d67b22-c407-49e5-97df-d81db43969b2 fwd="76.84.36.147" dyno=web.1 connect=4ms service=105ms status=404 bytes=1829
+2014-06-24T18:25:35.117462+00:00 app[web.1]: => Booting WEBrick
+2014-06-24T18:25:35.117471+00:00 app[web.1]: => Run `rails server -h` for more startup options
+2014-06-24T18:25:35.204317+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.1.0/lib/rails/rack/logger.rb:20:in `block in call'
+2014-06-24T18:25:35.204368+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/actionpack-4.1.0/lib/action_dispatch/middleware/static.rb:64:in `call'
+2014-06-24T18:25:35.204376+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+2014-06-24T18:25:35.117476+00:00 app[web.1]: Started GET "/" for 76.84.36.147 at 2014-06-24 18:25:35 +0000
+2014-06-24T18:25:35.204378+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+2014-06-24T18:25:35.117473+00:00 app[web.1]: => Notice: server is listening on all interfaces (0.0.0.0). Consider using 127.0.0.1 (--binding option)
+2014-06-24T18:25:35.204318+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/activesupport-4.1.0/lib/active_support/tagged_logging.rb:68:in `block in tagged'
+2014-06-24T18:25:35.204360+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.1.0/lib/rails/rack/logger.rb:20:in `call'
+2014-06-24T18:25:35.204363+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+2014-06-24T18:25:35.204371+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.1.0/lib/rails/engine.rb:514:in `call'
+2014-06-24T18:25:35.204381+00:00 app[web.1]:   vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+2014-06-24T18:25:35.204385+00:00 app[web.1]: 
+2014-06-24T18:25:35.117469+00:00 app[web.1]: => Rails 4.1.0 application starting in production on http://0.0.0.0:46956
+2014-06-24T18:25:35.204298+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/actionpack-4.1.0/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+2014-06-24T18:25:35.204345+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/activesupport-4.1.0/lib/active_support/tagged_logging.rb:68:in `tagged'
+2014-06-24T18:25:35.204365+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+2014-06-24T18:25:35.204373+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.1.0/lib/rails/application.rb:144:in `call'
+2014-06-24T18:26:11.302329+00:00 heroku[router]: at=info method=GET path="/" host=lincolnixweb.herokuapp.com request_id=c8d42de0-42cc-4374-9f22-fe6923115618 fwd="76.84.36.147" dyno=web.1 connect=38ms service=36ms status=404 bytes=1829
+2014-06-24T18:26:11.280127+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/activesupport-4.1.0/lib/active_support/tagged_logging.rb:68:in `tagged'
+2014-06-24T18:26:11.280121+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.1.0/lib/rails/rack/logger.rb:38:in `call_app'
+2014-06-24T18:26:11.280122+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.1.0/lib/rails/rack/logger.rb:20:in `block in call'
+2014-06-24T18:26:11.280129+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.1.0/lib/rails/rack/logger.rb:20:in `call'
+2014-06-24T18:26:11.280112+00:00 app[web.1]: 
+2014-06-24T18:26:11.280116+00:00 app[web.1]: ActionController::RoutingError (No route matches [GET] "/"):
+2014-06-24T18:26:11.280141+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.1.0/lib/rails/application.rb:144:in `call'
+2014-06-24T18:26:11.280117+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/actionpack-4.1.0/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+2014-06-24T18:26:11.280119+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/actionpack-4.1.0/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+2014-06-24T18:26:11.272821+00:00 app[web.1]: Started GET "/" for 76.84.36.147 at 2014-06-24 18:26:11 +0000
+2014-06-24T18:26:11.280140+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/railties-4.1.0/lib/rails/engine.rb:514:in `call'
+2014-06-24T18:26:11.280124+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/activesupport-4.1.0/lib/active_support/tagged_logging.rb:68:in `block in tagged'
+2014-06-24T18:26:11.280125+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/activesupport-4.1.0/lib/active_support/tagged_logging.rb:26:in `tagged'
+2014-06-24T18:26:11.280165+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+2014-06-24T18:26:11.280169+00:00 app[web.1]:   vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+2014-06-24T18:26:11.280172+00:00 app[web.1]: 
+2014-06-24T18:26:11.280143+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+2014-06-24T18:26:11.280166+00:00 app[web.1]:   vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+2014-06-24T18:26:11.280168+00:00 app[web.1]:   vendor/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+2014-06-24T18:26:11.280171+00:00 app[web.1]: 
+2014-06-24T18:26:11.280132+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+2014-06-24T18:26:11.280130+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/actionpack-4.1.0/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+2014-06-24T18:26:11.280135+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/activesupport-4.1.0/lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+2014-06-24T18:26:11.280134+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+2014-06-24T18:26:11.280138+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+2014-06-24T18:26:11.280137+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/actionpack-4.1.0/lib/action_dispatch/middleware/static.rb:64:in `call'
+2014-06-24T18:26:11.280163+00:00 app[web.1]:   vendor/bundle/ruby/2.1.0/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'

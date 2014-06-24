@@ -1,69 +1,59 @@
-LincolnixLearningCenter application
-
-*Documentation forthcoming*
 #+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/2.5.0/
-#+TITLE: A Generic Scheduler
-#+AUTHOR: 
-#+EMAIL: 
+#+TITLE: Lincolnix Learning Center (web)
+#+AUTHOR: AnderSon
+#+EMAIL: son@lincolnix.net
 #+OPTIONS: toc:nil num:nil
 
-* Scheduler Application
 
-  [[http://gensched.herokuapp.com]]
+* Lincolnix Learning Center Website/Application
 
-  Create a generic application for scheduling a service from a user's phone or 
-  computer via the web (ie. delivery (laundry, beer, groceries)
+  http://lincolnixweb.herokuapp.com
+
+  Create an online center for the Lincolnix Learning Center (Lincoln, NE).
+
+** Issues
+
+   - [ ] [[./herokulog-test.org]]
+
+     "The page you were looking for doesn't exist."(heroku)
 
 
 * Basic concept
 
-  A user, from the web (via mobile or desktop/laptop), visits the application 
-  site for a specific service (laundry pickup/delivery), selects a 
-  service and a date&time. A request for the service/time is emailed
-  to admin. When approved, a confirmation email is returned and the service is 
-  planned for the appropriate time on the business side.
+  Build an online hub for the Lincolnix Learning Center. Beginning with a basic
+  website, simply for hosting information about the school. Expand functionality
+  from there to include forums for sharing, research, resources, and general 
+  student communication.
 
 * ModelViewControl
 
-  [[http://guides.rubyonrails.org/active_record_basics.html][Users]] [[http://guides.rubyonrails.org/action_controller_overview.html][order and schedule]] services through a web-based [[http://guides.rubyonrails.org/action_view_overview.html][application]]. 
-
-  This application displays a calendar and scheduling information along with 
-  basic operation information. One or more datetimes are selected from a 
-  controlled array of available times for service to be rendered.
-
 ** Model
 
-   Each *page* will serve as a node for site structure.
-
-   A *user* will have many *shifts*, associated by id when scheduling requests.
-
-   *Admin* users will have access to greenlighting of scheduling requests.
-   
-   
+   /User/(devise), Page(static)
 
 *** Page
 
-    - [X] generate page scaffolding
+    - [ ] Create Static Pages
 
-      : rails g scaffold Page index
+      http://www.railstutorial.org/book/static_pages
 
-**** Additional attributes/columns
-
-     - [ ] index: string
       
+
+
+**** attributes/actions
 
 *** User
 
 **** Devise
 
-     - [-] Install [[https://github.com/plataformatec/devise][Devise]]
+     - [ ] Install [[https://github.com/plataformatec/devise][Devise]]
 
-       - [X] add Devise gem to [[./Gemfile][Gemfile]] and bundle
+       - [ ] add Devise gem to [[./Gemfile][Gemfile]] and bundle
 
              : gem 'devise'
 	     : bundle 
 
-       - [X] run the devise generator
+       - [ ] run the devise generator
 
 	 : rails generate devise:install
 
@@ -71,20 +61,20 @@ LincolnixLearningCenter application
 
 	 : Some setup you must do manually if you haven't yet:
 
-	 - [X] Ensure you have defined default url options in your environments 
+	 - [ ] Ensure you have defined default url options in your environments 
                files. 
 
 	    [[./config/environments/development.rb]]
 
 	   : config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
-	 - [X] In production, :host should be set to the actual host of your application.
+	 - [ ] In production, :host should be set to the actual host of your application.
 
 	    [[./config/environments/production.rb]]
 
 	   : config.action_mailer.default_url_options = { host: 'gensched.herokuapp.com' }
 
-	 - [X]  Ensure you have defined root_url to *something* 
+	 - [ ]  Ensure you have defined root_url to *something* 
 
 	   [[./config/routes.rb]]
 
@@ -93,28 +83,28 @@ LincolnixLearningCenter application
 	   [[./app/views/pages/index.html.erb]]
 
 
-	 - [X]  Ensure you have flash messages  
+	 - [ ]  Ensure you have flash messages  
      
 	   [[./app/views/layouts/application.html.erb]]
 
 	   : <p class="notice"><%= notice %></p>
 	   : <p class="alert"><%= alert %></p>
 
-	 - [X] Copy Devise views (for customization):
+	 - [ ] Copy Devise views (for customization):
 
 	   : rails g devise:views
 
-       - [X] Add Devise to a model
+	 - [ ] Add Devise to a model
 
-	 : rails g devise MODEL
+	   : rails g devise MODEL
 
-	 : rails g devise User
+	   : rails g devise User
 
-       - [ ] Configure the model
+	 - [ ] Configure the model
 
-       - [X] Migrate the database
+	 - [ ] Migrate the database
 
-	 : rake db:migrate
+	   : rake db:migrate
 	 
        
 
@@ -143,13 +133,13 @@ LincolnixLearningCenter application
      
 ***** fullcalendar-rails-engine
 
-      - [X] install
+      - [ ] install
 	
 	: gem 'fullcalendar_engine'
 	: bundle install
 	: bundle exec rails g fullcalendar_engine:install
 
-      - [X] Declare routes
+      - [ ] Declare routes
 
 	[[./config/routes.rb]]
 
@@ -193,12 +183,12 @@ LincolnixLearningCenter application
 
 ****** Install
 
-      - [X] install
+      - [ ] install
 
        	: gem 'fullcalendar-rails
        	: bundle
 
-      - [X] require in the appropriate places
+      - [ ] require in the appropriate places
 
        	[[./app/assets/stylesheets/application.css.scss]]
 
@@ -237,7 +227,7 @@ LincolnixLearningCenter application
 
        http://arshaw.com/fullcalendar/
 
-       - [X] The following script code should be placed in the head of your page
+       - [ ] The following script code should be placed in the head of your page
 
 	 in application page or specific view?
 	 Trying in the head of [[./app/views/layouts/application.html.erb]]
@@ -250,7 +240,7 @@ LincolnixLearningCenter application
          :   });
          : </script>
 
-       - [X] Relies on there being an element with an id of "calendar" in the 
+       - [ ] Relies on there being an element with an id of "calendar" in the 
 	 body of your page. The calendar will be placed /inside/ this div:
 
 	 : <div id='calendar'></div>
@@ -283,7 +273,7 @@ LincolnixLearningCenter application
 
 **** Generation
 
-    - [X] Generate Shift scaffold
+    - [ ] Generate Shift scaffold
 
       : rails g scaffold Shift index pickup:string dropoff:string
 
@@ -331,8 +321,6 @@ LincolnixLearningCenter application
        
        
 
-*** Commercial Exchange   
-
 
 *** Rails Generation
 
@@ -346,23 +334,17 @@ LincolnixLearningCenter application
        	:   g.stylesheets false
        	: end
 
-     - [X] Generate a scaffold
+     - [ ] Generate a scaffold
 
        EXAMPLE
        : rails g scaffold Page index
 
-     - [X] migrate the database
+     - [ ] migrate the database
 
        : rake db:migrate
 
 
 **** Generating a Model      
-
-
-*** Service    
-    
-    For now, I think it would make sense to look at it simply, accounting for a
-    single service that can be scheduled.
 
 
 ** View
@@ -376,20 +358,22 @@ LincolnixLearningCenter application
 
 *** Bootstrap-sass
     
-    - [X] Create custom bootstrap stylesheet
+    - [-] Create custom bootstrap stylesheet
 
       [[./app/assets/stylesheets/bootstrap_and_customization.css.scss]]
       
-      : echo "@import 'bootsrap';" > app/assets/stylesheets/bootstrap_and_customization.css.scss
+      - [X] create file
+
+            : echo "@import 'bootsrap';" > app/assets/stylesheets/bootstrap_and_customization.css.scss
 
       *NOTE* Place new variables before "@import 'bootstrap'"
 
-      - [X] Fonts
+      - [ ] Fonts
 
   	    /EXAMPLE:/
 	    : @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script);
 
-      - [X] Variables
+      - [ ] Variables
 
 	    : $phill-grn: #3f8000;
 
@@ -412,9 +396,7 @@ LincolnixLearningCenter application
 
      - [X] Replace turbolinks with jquery-turbolinks
 
-           [[app/assets/javascripts/application.js]]
-
-       : app/assets/javascripts/application.js
+       [[./app/assets/javascripts/application.js]]
 
        - [X] remove turbolinks line
 
@@ -436,7 +418,7 @@ LincolnixLearningCenter application
 
     [[./app/views/]]
 
-    - [X] add viewport
+    - [ ] add viewport
 
       [[./app/views/layouts/application.html.erb]]
 
@@ -477,12 +459,11 @@ LincolnixLearningCenter application
     [[./app/controllers/pages_controller.rb]]
 
 
-* Other required services
+* Other services
 
 ** Set up a mailer
 
 
-** commerce exchange
 
 * Application skeleton BASICS
 
@@ -499,59 +480,61 @@ LincolnixLearningCenter application
 
     : rails console
 
+*** Heroku
+
+*** Git    
+
 ** Essential Files
 
    [[./Gemfile][Gemfile]]
 
-** the following has now been defaulted into
+** Create the default skeletal application
 
-   DEV:edit [[./rails-new.sh]]
+  - [X] create a new application
 
-   [[./rails-new]]
+    : rails new LincolnixLearningCenter
+ 
+  - [X] update README
 
-*** Create the default skeletal application
+    : rm README.rdoc
+    : touch README.org
 
-   - [X] create scheduler application
+  - [X] copy generic rails script 
 
-     : rails new scheduler
-  
-   - [X] update README
+    For documentation and testing purpose of developing my default rails new 
+    bash script
 
-     : rm README.rdoc
-     : touch README.org
-
-   - [X] copy generic rails script 
-
-     For documentation and testing purpose of developing my default rails new 
-     bash script
-
-     : ln -s $HOME/bin/rails-new.sh rails-new.sh 
-     : cp $HOME/bin/rails-new.sh rails-new 
+    : ln -s $HOME/bin/rails-new.sh rails-new.sh 
+    : cp $HOME/bin/rails-new.sh rails-new 
 
 
-   - [X] rename application.css to application.css.scss
+  - [X] rename application.css to application.css.scss
 
-     : cd app/assets/stylesheets
-     : mv application.css application.css.scss
+    [[./app/assets/stylesheets/application.css.scss]]
 
-   - [X] Test the skeletal application
+    : cd app/assets/stylesheets
+    : mv application.css application.css.scss
 
-     - [X] Start the Rails server
+  - [X] Test the skeletal application
 
-     : rails s
-     
-     - [X] open your browser to localhost, port 3000
+    - [X] Start the Rails server
 
-       : localhost:3000
+    : rails s
+    
+    - [X] open your browser to localhost, port 3000
 
-   - [X] update the Gemfile
+      : localhost:3000
 
-     : cat ~/RAILS-dev/DEFAULT-Gemfile > Gemfile
+  - [X] update the Gemfile
 
-   - [X] update the bundle
+    [[./Gemfile]]
 
-     : bundle update
-     : bundle install --without production
+    : cat ~/RAILS-dev/DEFAULT-Gemfile > Gemfile
+
+  - [X] update the bundle
+
+    : bundle update
+    : bundle install --without production
 
 *** Set up Git and Heroku
 
@@ -573,7 +556,7 @@ LincolnixLearningCenter application
 
    - [X] add the origin
 
-     : git remote add origin https://github.com/son1112/scheduler.git
+     : git remote add origin https://github.com/LincolnixLearningCenter/web.git
 
    - [X] initial push
 
@@ -588,4 +571,4 @@ LincolnixLearningCenter application
        
      - [X] Rename the heroku app
 
-       : heroku rename gensched
+       : heroku rename lincolnixweb
