@@ -167,34 +167,73 @@
        :   end
        : end
 
-     - [ ] Configure email address
+     - [-] Configure email address
 
-       [[./config/environments/development.rb]]
+       - [X] Development
+	 
+           [[./config/environments/development.rb]]
 
-       : config.action_mailer.delivery_method = :smtp
-       : config.action_mailer.smtp_settings = {
-       :   address: "smtp.gmail.com",
-       :   port: "587",
-       :   domain: ENV["GMAIL_DOMAIN_DEV"],
-       :   authentication: "plain",
-       :   enable_starttls_auto: true,
-       :   user_name: ENV["GMAIL_USERNAME_DEV"],
-       :   password: ENV["GMAIL_PASSWORD_DEV"]
-       : }
+           : config.action_mailer.delivery_method = :smtp
+           : config.action_mailer.smtp_settings = {
+           :   address: "smtp.gmail.com",
+           :   port: "587",
+           :   domain: ENV["GMAIL_DOMAIN_DEV"],
+           :   authentication: "plain",
+           :   enable_starttls_auto: true,
+           :   user_name: ENV["GMAIL_USERNAME_DEV"],
+           :   password: ENV["GMAIL_PASSWORD_DEV"]
+           : }
 
-       - [ ] Configure environment variables
+	 - [X] Configure environment variables
 
-	 .env
+	   .env
 
-	 - [ ] make sure .env is ignored by git
+	   - [X] make sure .env is ignored by git
 
-	   [[./.gitignore]]
+	     [[./.gitignore]]
 
-	 - [ ] add variables
+	   - [X] add variables
 
-	 : GMAIL_DOMAIN=gmail.com
-	 : GMAIL_USERNAME=exampleuser@gmail.com
-	 : GMAIL_PASSWORD=password
+   	         : GMAIL_DOMAIN=gmail.com
+	         : GMAIL_USERNAME=exampleuser@gmail.com
+	         : GMAIL_PASSWORD=password
+
+       - [-] Production
+
+	 - [X] Push to Heroku
+
+	   : git push heroku master
+
+	 - [X] Add SendGrid to heroku app
+
+	   https://addons.heroku.com/
+	   
+	   : heroku addons:add sendgrid:starter
+
+	 - [X] Check for automatically generated SendGrid username and password
+
+	   : heroku config:get SENDGRID_USERNAME
+	   : heroku config:get SENDGRID_PASSWORD
+	   OR
+	   : heroku config
+
+	 - [ ] Edit production.rb
+
+	   [[./config/environments/production.rb]]
+
+	   : config.action_mailer.default_url_options = { host: 'lincolnixweb.herokuapp.com' }
+           : # Change mail delivery to either :smtp, :sendmail, :file, :test
+           : config.action_mailer.delivery_method = :smtp
+           : config.action_mailer.smtp_settings = {
+           : # ActionMailer::Base.smtp_settings = {
+           :   :address => 'smtp.sendgrid.net',
+           :   :port => '587',
+           :   :authentication => :plain,
+           :   :user_name => ENV['SENDGRID_USERNAME'],
+           :   :password => ENV['SENDGRIDE_PASSWORD'],
+           :   :domain => 'heroku.com',
+           :   :enable_starttls_auto => true
+           : }
 
 
 **** Admin

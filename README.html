@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Lincolnix Learning Center (web)</title>
-<!-- 2014-06-25 Wed 04:47 -->
+<!-- 2014-06-25 Wed 05:04 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="AnderSon" />
@@ -428,7 +428,10 @@ end
 </pre>
 </li>
 
-<li><code>[&#xa0;]</code> Configure email address
+<li><code>[-]</code> Configure email address
+
+<ul class="org-ul">
+<li><code>[X]</code> Development
 
 <p>
 <a href="./config/environments/development.rb">./config/environments/development.rb</a>
@@ -448,28 +451,91 @@ config.action_mailer.smtp_settings = {
 </pre>
 
 <ul class="org-ul">
-<li><code>[&#xa0;]</code> Configure environment variables
+<li><code>[X]</code> Configure environment variables
 
 <p>
 .env
 </p>
 
 <ul class="org-ul">
-<li><code>[&#xa0;]</code> make sure .env is ignored by git
+<li><code>[X]</code> make sure .env is ignored by git
 
 <p>
 <a href="./.gitignore">./.gitignore</a>
 </p>
 </li>
 
-<li><code>[&#xa0;]</code> add variables
-</li>
-</ul>
+<li><code>[X]</code> add variables
+
 <pre class="example">
 GMAIL_DOMAIN=gmail.com
 GMAIL_USERNAME=exampleuser@gmail.com
 GMAIL_PASSWORD=password
 </pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li><code>[-]</code> Production
+
+<ul class="org-ul">
+<li><code>[X]</code> Push to Heroku
+
+<pre class="example">
+git push heroku master
+</pre>
+</li>
+
+<li><code>[X]</code> Add SendGrid to heroku app
+
+<p>
+<a href="https://addons.heroku.com/">https://addons.heroku.com/</a>
+</p>
+
+<pre class="example">
+heroku addons:add sendgrid:starter
+</pre>
+</li>
+
+<li><code>[X]</code> Check for automatically generated SendGrid username and password
+
+<pre class="example">
+heroku config:get SENDGRID_USERNAME
+heroku config:get SENDGRID_PASSWORD
+</pre>
+<p>
+OR
+</p>
+<pre class="example">
+heroku config
+</pre>
+</li>
+
+<li><code>[&#xa0;]</code> Edit production.rb
+
+<p>
+<a href="./config/environments/production.rb">./config/environments/production.rb</a>
+</p>
+
+<pre class="example">
+config.action_mailer.default_url_options = { host: 'lincolnixweb.herokuapp.com' }
+# Change mail delivery to either :smtp, :sendmail, :file, :test
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+# ActionMailer::Base.smtp_settings = {
+  :address =&gt; 'smtp.sendgrid.net',
+  :port =&gt; '587',
+  :authentication =&gt; :plain,
+  :user_name =&gt; ENV['SENDGRID_USERNAME'],
+  :password =&gt; ENV['SENDGRIDE_PASSWORD'],
+  :domain =&gt; 'heroku.com',
+  :enable_starttls_auto =&gt; true
+}
+</pre>
+</li>
+</ul>
 </li>
 </ul>
 </li>
