@@ -196,7 +196,7 @@
 	   - [X] add variables
 
    	         : GMAIL_DOMAIN=gmail.com
-	         : GMAIL_USERNAME=exampleuser@gmail.com
+	         : GMAIL_USERNAME=exampleuser
 	         : GMAIL_PASSWORD=password
 
        - [X] Production
