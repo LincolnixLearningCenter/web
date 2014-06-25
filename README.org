@@ -123,6 +123,10 @@
 
 **** Mailer	 
 
+     *currently not working. i've been able to get the mailer working in other* 
+     *applications, but cannot seem to duplicate it here. i get no error* 
+     *messages, but also no mail sent...*
+
      [[http://howilearnedrails.wordpress.com/2014/02/25/setting-up-email-in-a-rails-4-app-with-action-mailer-in-development-and-sendgrid-in-production-using-heroku/][Setting up Email in a Rails 4 app with Action Mailer(dev) and SendGrid(prod) using Heroku]]
 
      - [X] Generate a UserMailer
