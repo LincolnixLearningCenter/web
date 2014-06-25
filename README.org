@@ -153,7 +153,7 @@
      - [X] Create/Modify the controller
 
        [[./app/controllers/]]
-       [[./app/controllers/users_controller.rb]]
+       [[./app/controllers/devise/users_controller.rb]]
 
        : class UsersController < ApplicationController
        :   def create
@@ -622,6 +622,10 @@
 
 
 
+
+**** Devise
+
+     [[./app/views/devise/]]
 
 ** Control
 
