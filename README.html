@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Lincolnix Learning Center (web)</title>
-<!-- 2014-06-24 Tue 14:47 -->
+<!-- 2014-06-25 Wed 04:47 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="AnderSon" />
@@ -156,10 +156,14 @@ Create an online center for the Lincolnix Learning Center (Lincoln, NE).
 <h3 id="sec-1-1">Issues</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
-<li><code>[&#xa0;]</code> <a href="./herokulog-test.html">./herokulog-test.html</a>
+<li><code>[X]</code> <a href="./herokulog-test.html">./herokulog-test.html</a>
 
 <p>
 "The page you were looking for doesn't exist."(heroku)
+</p>
+
+<p>
+Setup <a href="#sec-3-3-1">routes</a>
 </p>
 </li>
 </ul>
@@ -226,12 +230,19 @@ rails g controller Pages home
 <div id="outline-container-sec-3-1-2" class="outline-4">
 <h4 id="sec-3-1-2">User</h4>
 <div class="outline-text-4" id="text-3-1-2">
-</div><ul class="org-ul"><li>Devise<br  /><div class="outline-text-5" id="text-3-1-2-1">
+<p>
+Lincolnix students should be able to visit the website, sign up for an 
+account and at least recieve a confirmation email, so we should set up 
+a mailer.
+</p>
+</div>
+
+<ul class="org-ul"><li>Devise<br  /><div class="outline-text-5" id="text-3-1-2-1">
 <ul class="org-ul">
-<li><code>[&#xa0;]</code> Install <a href="https://github.com/plataformatec/devise">Devise</a>
+<li><code>[X]</code> Install <a href="https://github.com/plataformatec/devise">Devise</a>
 
 <ul class="org-ul">
-<li><code>[&#xa0;]</code> add Devise gem to <a href="./Gemfile">Gemfile</a> and bundle
+<li><code>[X]</code> add Devise gem to <a href="./Gemfile">Gemfile</a> and bundle
 
 <pre class="example">
 gem 'devise'
@@ -239,7 +250,7 @@ bundle
 </pre>
 </li>
 
-<li><code>[&#xa0;]</code> run the devise generator
+<li><code>[X]</code> run the devise generator
 
 <pre class="example">
 rails generate devise:install
@@ -254,7 +265,7 @@ Some setup you must do manually if you haven't yet:
 </pre>
 
 <ul class="org-ul">
-<li><code>[&#xa0;]</code> Ensure you have defined default url options in your environments 
+<li><code>[X]</code> Ensure you have defined default url options in your environments 
 files. 
 
 <p>
@@ -266,7 +277,7 @@ config.action_mailer.default_url_options = { host: 'localhost:3000' }
 </pre>
 </li>
 
-<li><code>[&#xa0;]</code> In production, :host should be set to the actual host of your application.
+<li><code>[X]</code> In production, :host should be set to the actual host of your application.
 
 <p>
 <a href="./config/environments/production.rb">./config/environments/production.rb</a>
@@ -277,7 +288,7 @@ config.action_mailer.default_url_options = { host: 'gensched.herokuapp.com' }
 </pre>
 </li>
 
-<li><code>[&#xa0;]</code> Ensure you have defined root<sub>url</sub> to <b>something</b> 
+<li><code>[X]</code> Ensure you have defined root<sub>url</sub> to <b>something</b> 
 
 <p>
 <a href="./config/routes.rb">./config/routes.rb</a>
@@ -291,15 +302,8 @@ root 'pages#home'
 <a href="./app/views/pages/index.html.erb">./app/views/pages/index.html.erb</a>
 </p>
 </li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 
-
-<ul class="org-ul">
-<li><code>[&#xa0;]</code> Ensure you have flash messages  
+<li><code>[X]</code> Ensure you have flash messages  
 
 <p>
 <a href="./app/views/layouts/application.html.erb">./app/views/layouts/application.html.erb</a>
@@ -311,40 +315,170 @@ root 'pages#home'
 </pre>
 </li>
 
-<li><code>[&#xa0;]</code> Copy Devise views (for customization):
+<li><code>[X]</code> Copy Devise views (for customization):
 
 <pre class="example">
 rails g devise:views
 </pre>
 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-<li><code>[&#xa0;]</code> Add Devise to a model
 
-<pre class="example">
-rails g devise MODEL
-</pre>
+<ul class="org-ul">
+<li><code>[-]</code> Add Devise to a model
 
 <pre class="example">
 rails g devise User
 </pre>
-</li>
 
+<ul class="org-ul">
 <li><code>[&#xa0;]</code> Configure the model
 </li>
 
-<li><code>[&#xa0;]</code> Migrate the database
+<li><code>[X]</code> Migrate the database
 
 <pre class="example">
 rake db:migrate
 </pre>
+
+<ul class="org-ul">
+<li><code>[X]</code> restart the server!
+</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 </div>
 </li>
 
 
+<li>Mailer<br  /><div class="outline-text-5" id="text-3-1-2-2">
+<p>
+<a href="http://howilearnedrails.wordpress.com/2014/02/25/setting-up-email-in-a-rails-4-app-with-action-mailer-in-development-and-sendgrid-in-production-using-heroku/">Setting up Email in a Rails 4 app with Action Mailer(dev) and SendGrid(prod) using Heroku</a>
+</p>
 
-<li>Admin<br  /><div class="outline-text-5" id="text-3-1-2-2">
+<ul class="org-ul">
+<li><code>[X]</code> Generate a UserMailer
+
+<p>
+<a href="http://guides.rubyonrails.org/action_mailer_basics.html">http://guides.rubyonrails.org/action_mailer_basics.html</a>
+</p>
+
+<pre class="example">
+rails g mailer UserMailer
+</pre>
+</li>
+
+<li><code>[X]</code> Create a function that sends email
+
+<p>
+<a href="./app/mailers/user_mailer.rb">./app/mailers/user_mailer.rb</a>
+</p>
+
+<pre class="example">
+def welcome_email(user)
+  @user = user
+  @url = 'http://www.google.com'
+  mail(to: @user.email, subject: 'test welcome email')
+end
+</pre>
+</li>
+
+<li><code>[X]</code> Create the email view
+
+<p>
+<a href="./app/views/user_mailer">./app/views/user_mailer</a>
+</p>
+
+<p>
+The name of the file should match the name of the function you defined 
+in the user<sub>mailer</sub>.rb file.
+</p>
+
+<p>
+<a href="./app/views/user_mailer/welcome_email.html.erb">./app/views/user_mailer/welcome_email.html.erb</a>
+</p>
+</li>
+
+<li><code>[X]</code> Create/Modify the controller
+
+<p>
+<a href="./app/controllers/">./app/controllers/</a>
+<a href="./app/controllers/users_controller.rb">./app/controllers/users_controller.rb</a>
+</p>
+
+<pre class="example">
+class UsersController &lt; ApplicationController
+  def create
+    @user = User.new(params[:user])
+
+    respond_to do |format|
+      if @user.save
+        # Tell the UserMailer to send a welcome Email after save
+        UserMailer.welcome_email(@user).deliver
+      end
+    end
+  end
+end
+</pre>
+</li>
+
+<li><code>[&#xa0;]</code> Configure email address
+
+<p>
+<a href="./config/environments/development.rb">./config/environments/development.rb</a>
+</p>
+
+<pre class="example">
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  address: "smtp.gmail.com",
+  port: "587",
+  domain: ENV["GMAIL_DOMAIN_DEV"],
+  authentication: "plain",
+  enable_starttls_auto: true,
+  user_name: ENV["GMAIL_USERNAME_DEV"],
+  password: ENV["GMAIL_PASSWORD_DEV"]
+}
+</pre>
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Configure environment variables
+
+<p>
+.env
+</p>
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> make sure .env is ignored by git
+
+<p>
+<a href="./.gitignore">./.gitignore</a>
+</p>
+</li>
+
+<li><code>[&#xa0;]</code> add variables
+</li>
+</ul>
+<pre class="example">
+GMAIL_DOMAIN=gmail.com
+GMAIL_USERNAME=exampleuser@gmail.com
+GMAIL_PASSWORD=password
+</pre>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+
+
+<li>Admin<br  /><div class="outline-text-5" id="text-3-1-2-3">
 <ul class="org-ul">
 <li><code>[&#xa0;]</code> create a migration to add admin boolean to User model
 </li>
@@ -784,11 +918,82 @@ rake db:migrate
 </div><div id="outline-container-sec-3-2-1" class="outline-4">
 <h4 id="sec-3-2-1">Skrollr</h4>
 <div class="outline-text-4" id="text-3-2-1">
+<p>
+<a href="https://github.com/reed/skrollr-rails">https://github.com/reed/skrollr-rails</a>
+</p>
+
 <ul class="org-ul">
-<li><code>[&#xa0;]</code> add skrollr script
+<li><code>[X]</code> add skrollr script
+
+<ul class="org-ul">
+<li><code>[X]</code> make sure skrollr-rails is in the Gemfile
+
+<p>
+<a href="./Gemfile">./Gemfile</a>
+</p>
+
+<pre class="example">
+gem 'skrollr-rails'
+</pre>
 </li>
 
-<li><code>[&#xa0;]</code> application.js
+<li><code>[X]</code> add the following script just before &lt;/body&gt; tag
+
+<p>
+<a href="./app/views/layouts/application.html.erb">./app/views/layouts/application.html.erb</a>
+</p>
+
+<pre class="example">
+&lt;script&gt;
+ (function($){
+   skrollr.init({
+     forceHeight: false,
+     smoothScrolling: false
+   }).refresh();
+ } (jQuery));
+&lt;/script&gt;
+</pre>
+</li>
+
+<li><code>[X]</code> Place #skrollr-body div tag around &lt;%= yield %&gt; tag
+
+<pre class="example">
+&lt;div id="skrollr-body"&gt;
+</pre>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<ul class="org-ul">
+<li><code>[X]</code> require skrollr in application.js
+
+<p>
+<a href="./app/assets/javascripts/application.js">./app/assets/javascripts/application.js</a>
+</p>
+
+<pre class="example">
+//= require skrollr
+</pre>
+
+<ul class="org-ul">
+<li><code>[X]</code> For IE compatibility
+
+<pre class="example">
+//= require skrollr
+//= require skrollr.ie
+</pre>
+</li>
+
+<li><code>[X]</code> This plugin makes hashlinks scroll nicely to their target position.
+
+<pre class="example">
+//= require skrollr
+//= require skrollr.menu
+</pre>
+</li>
+</ul>
 </li>
 </ul>
 </div>
@@ -859,7 +1064,12 @@ $phill-grn: #3f8000;
 <div id="outline-container-sec-3-2-3" class="outline-4">
 <h4 id="sec-3-2-3">Assets</h4>
 <div class="outline-text-4" id="text-3-2-3">
-</div><ul class="org-ul"><li>Stylesheets<br  /></li>
+</div><ul class="org-ul"><li>Stylesheets<br  /><div class="outline-text-5" id="text-3-2-3-1">
+<p>
+<a href="./app/assets/stylesheets/bootstrap_and_customization.css.scss">./app/assets/stylesheets/bootstrap_and_customization.css.scss</a>
+</p>
+</div>
+</li>
 
 <li>Javascripts<br  /><div class="outline-text-5" id="text-3-2-3-2">
 <ul class="org-ul">
@@ -890,14 +1100,23 @@ $phill-grn: #3f8000;
 </div>
 </li>
 
+
 <li>Images<br  /><div class="outline-text-5" id="text-3-2-3-3">
 <ul class="org-ul">
 <li><code>[&#xa0;]</code> css background images 
+
+<pre class="example">
+background: image-url('image.jpg')
+</pre>
+</li>
+
+<li><code>[&#xa0;]</code> set video as background?
 </li>
 </ul>
 </div>
 </li></ul>
 </div>
+
 
 
 <div id="outline-container-sec-3-2-4" class="outline-4">
@@ -909,7 +1128,7 @@ $phill-grn: #3f8000;
 </p>
 
 <ul class="org-ul">
-<li><code>[&#xa0;]</code> add viewport
+<li><code>[X]</code> add viewport
 
 <p>
 <a href="./app/views/layouts/application.html.erb">./app/views/layouts/application.html.erb</a>
@@ -923,9 +1142,11 @@ $phill-grn: #3f8000;
 </div>
 </li>
 
+
 <li>Pages<br  /><div class="outline-text-5" id="text-3-2-4-2">
 <p>
 <a href="./app/views/pages/">./app/views/pages/</a>
+<a href="./app/views/pages/pages.html">./app/views/pages/pages.html</a>
 </p>
 </div>
 
@@ -935,15 +1156,11 @@ $phill-grn: #3f8000;
 </p>
 </div>
 </li></ul>
-</li>
-
-
-
-<li>Layouts<br  /></li>
-
-<li>Partials<br  /></li></ul>
+</li></ul>
 </div>
 </div>
+
+
 
 
 <div id="outline-container-sec-3-3" class="outline-3">
@@ -964,7 +1181,7 @@ $phill-grn: #3f8000;
 <li><code>[X]</code> create root path
 
 <pre class="example">
-root 'pages#index'
+root 'pages#home'
 </pre>
 </li>
 </ul>

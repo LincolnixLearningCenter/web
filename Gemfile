@@ -17,6 +17,7 @@ gem 'mail_form'
 gem 'simple_form'
 gem 'skrollr-rails'
 gem 'rails_admin'
+gem 'devise'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development

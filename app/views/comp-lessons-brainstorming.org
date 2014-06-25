@@ -1,0 +1,18 @@
+COMPUTER LESSONS
+
+* Main Idea
+
+  Offer computer lessons in much the same mode as a guitar player might offer
+  guitar lessons on the side
+
+** Purposes
+
+   - earn a little extra income
+   - making legitimate time to do the computer work I enjoy doing
+   - providing insight to others as to how computers can work and possibilites
+     that are available through free/libre software and design
+
+
+* org rules
+
+# Hi-lock: (("^.*\\(?:.\\{81\\}\\).*$" (0 (quote hi-pink) t)))

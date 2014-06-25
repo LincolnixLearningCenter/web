@@ -1,0 +1,20 @@
+
+* Application
+
+  [[../layouts/application.html.erb]]
+
+** Header
+
+   [[../layouts/_header.html.erb]]
+
+** Pages
+
+   [[./home.html.erb]]
+
+** Footer
+
+   [[../layouts/_footer.html.erb]]
+
+* Stylesheets
+  
+  [[../../assets/stylesheets/bootstrap_and_customization.css.scss]]

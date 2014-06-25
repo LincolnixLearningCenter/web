@@ -13,9 +13,11 @@
 
 ** Issues
 
-   - [ ] [[./herokulog-test.org]]
+   - [X] [[./herokulog-test.org]]
 
      "The page you were looking for doesn't exist."(heroku)
+
+     Setup [[*Routes][routes]]
 
 
 * Basic concept
@@ -50,16 +52,21 @@
 
 *** User
 
+    
+    Lincolnix students should be able to visit the website, sign up for an 
+    account and at least recieve a confirmation email, so we should set up 
+    a mailer.
+
 **** Devise
 
-     - [ ] Install [[https://github.com/plataformatec/devise][Devise]]
+     - [X] Install [[https://github.com/plataformatec/devise][Devise]]
 
-       - [ ] add Devise gem to [[./Gemfile][Gemfile]] and bundle
+       - [X] add Devise gem to [[./Gemfile][Gemfile]] and bundle
 
              : gem 'devise'
 	     : bundle 
 
-       - [ ] run the devise generator
+       - [X] run the devise generator
 
 	 : rails generate devise:install
 
@@ -67,20 +74,20 @@
 
 	 : Some setup you must do manually if you haven't yet:
 
-	 - [ ] Ensure you have defined default url options in your environments 
+	 - [X] Ensure you have defined default url options in your environments 
                files. 
 
-	    [[./config/environments/development.rb]]
+	   [[./config/environments/development.rb]]
 
 	   : config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
-	 - [ ] In production, :host should be set to the actual host of your application.
+	 - [X] In production, :host should be set to the actual host of your application.
 
-	    [[./config/environments/production.rb]]
+	   [[./config/environments/production.rb]]
 
 	   : config.action_mailer.default_url_options = { host: 'gensched.herokuapp.com' }
 
-	 - [ ]  Ensure you have defined root_url to *something* 
+	 - [X]  Ensure you have defined root_url to *something* 
 
 	   [[./config/routes.rb]]
 
@@ -88,31 +95,107 @@
 
 	   [[./app/views/pages/index.html.erb]]
 
-
-	 - [ ]  Ensure you have flash messages  
+	 - [X]  Ensure you have flash messages  
      
 	   [[./app/views/layouts/application.html.erb]]
 
 	   : <p class="notice"><%= notice %></p>
 	   : <p class="alert"><%= alert %></p>
 
-	 - [ ] Copy Devise views (for customization):
+	 - [X] Copy Devise views (for customization):
 
 	   : rails g devise:views
 
-	 - [ ] Add Devise to a model
 
-	   : rails g devise MODEL
+       - [-] Add Devise to a model
 
-	   : rails g devise User
+	 : rails g devise User
 
 	 - [ ] Configure the model
 
-	 - [ ] Migrate the database
+	 - [X] Migrate the database
 
 	   : rake db:migrate
+
+	   - [X] restart the server!
 	 
+
+**** Mailer	 
+
+     [[http://howilearnedrails.wordpress.com/2014/02/25/setting-up-email-in-a-rails-4-app-with-action-mailer-in-development-and-sendgrid-in-production-using-heroku/][Setting up Email in a Rails 4 app with Action Mailer(dev) and SendGrid(prod) using Heroku]]
+
+     - [X] Generate a UserMailer
+
+       http://guides.rubyonrails.org/action_mailer_basics.html
+
+       : rails g mailer UserMailer
+
+     - [X] Create a function that sends email
+
+       [[./app/mailers/user_mailer.rb]]
+
+       : def welcome_email(user)
+       :   @user = user
+       :   @url = 'http://www.google.com'
+       :   mail(to: @user.email, subject: 'test welcome email')
+       : end
+
+     - [X] Create the email view
+
+       [[./app/views/user_mailer]]
        
+       The name of the file should match the name of the function you defined 
+       in the user_mailer.rb file.
+
+       [[./app/views/user_mailer/welcome_email.html.erb]]
+
+     - [X] Create/Modify the controller
+
+       [[./app/controllers/]]
+       [[./app/controllers/users_controller.rb]]
+
+       : class UsersController < ApplicationController
+       :   def create
+       :     @user = User.new(params[:user])
+       :
+       :     respond_to do |format|
+       :       if @user.save
+       :         # Tell the UserMailer to send a welcome Email after save
+       :         UserMailer.welcome_email(@user).deliver
+       :       end
+       :     end
+       :   end
+       : end
+
+     - [ ] Configure email address
+
+       [[./config/environments/development.rb]]
+
+       : config.action_mailer.delivery_method = :smtp
+       : config.action_mailer.smtp_settings = {
+       :   address: "smtp.gmail.com",
+       :   port: "587",
+       :   domain: ENV["GMAIL_DOMAIN_DEV"],
+       :   authentication: "plain",
+       :   enable_starttls_auto: true,
+       :   user_name: ENV["GMAIL_USERNAME_DEV"],
+       :   password: ENV["GMAIL_PASSWORD_DEV"]
+       : }
+
+       - [ ] Configure environment variables
+
+	 .env
+
+	 - [ ] make sure .env is ignored by git
+
+	   [[./.gitignore]]
+
+	 - [ ] add variables
+
+	 : GMAIL_DOMAIN=gmail.com
+	 : GMAIL_USERNAME=exampleuser@gmail.com
+	 : GMAIL_PASSWORD=password
+
 
 **** Admin
 
@@ -357,10 +440,50 @@
 
 *** Skrollr   
 
-    - [ ] add skrollr script
+    https://github.com/reed/skrollr-rails
 
-    - [ ] application.js
+    - [X] add skrollr script
 
+      - [X] make sure skrollr-rails is in the Gemfile
+
+         [[./Gemfile]]
+
+	: gem 'skrollr-rails'
+
+      - [X] add the following script just before </body> tag
+
+	[[./app/views/layouts/application.html.erb]]
+
+	: <script>
+        :  (function($){
+	:    skrollr.init({
+	:      forceHeight: false,
+	:      smoothScrolling: false
+	:    }).refresh();
+        :  } (jQuery));
+	: </script>
+
+      - [X] Place #skrollr-body div tag around <%= yield %> tag
+
+	: <div id="skrollr-body">
+
+
+    - [X] require skrollr in application.js
+
+      [[./app/assets/javascripts/application.js]]
+
+      : //= require skrollr
+
+      - [X] For IE compatibility
+
+	: //= require skrollr
+	: //= require skrollr.ie
+
+      - [X] This plugin makes hashlinks scroll nicely to their target position.
+
+	: //= require skrollr
+	: //= require skrollr.menu
+      
 
 *** Bootstrap-sass
     
@@ -398,6 +521,8 @@
 
 **** Stylesheets
 
+     [[./app/assets/stylesheets/bootstrap_and_customization.css.scss]]
+
 **** Javascripts
 
      - [X] Replace turbolinks with jquery-turbolinks
@@ -413,10 +538,16 @@
 	 : //= require bootstrap
 	 : //= require jquery.turbolinks
 
+
 **** Images   
 
      - [ ] css background images 
 
+       : background: image-url('image.jpg')
+
+     - [ ] set video as background?
+
+       
 
 *** Views
 
@@ -424,25 +555,23 @@
 
     [[./app/views/]]
 
-    - [ ] add viewport
+    - [X] add viewport
 
       [[./app/views/layouts/application.html.erb]]
 
       : <meta name="viewport" content="width=device-width, intial-scale=1.0">
 
+
 **** Pages
 
      [[./app/views/pages/]]
+     [[./app/views/pages/pages.org]]
 
 ***** Home
 
       [[./app/views/pages/home.html.erb]]
 
 
-
-**** Layouts
-
-**** Partials
 
 
 ** Control
@@ -455,7 +584,7 @@
 
     - [X] create root path
 
-      : root 'pages#index'
+      : root 'pages#home'
 
 
 *** Controllers   
