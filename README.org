@@ -167,7 +167,7 @@
        :   end
        : end
 
-     - [-] Configure email address
+     - [X] Configure email address
 
        - [X] Development
 	 
@@ -198,7 +198,7 @@
 	         : GMAIL_USERNAME=exampleuser@gmail.com
 	         : GMAIL_PASSWORD=password
 
-       - [-] Production
+       - [X] Production
 
 	 - [X] Push to Heroku
 
@@ -217,7 +217,7 @@
 	   OR
 	   : heroku config
 
-	 - [ ] Edit production.rb
+	 - [X] Edit production.rb
 
 	   [[./config/environments/production.rb]]
 
@@ -235,6 +235,15 @@
            :   :enable_starttls_auto => true
            : }
 
+	   - [X] git and heroku push
+
+	   - [X] migrate database
+
+	     I find that I sometimes have to run this a couple times
+
+	     : heroku run rake db:migrate
+
+     
 
 **** Admin
 
@@ -653,6 +662,9 @@
 *** Rails
 
     : rails console
+
+    : rails s
+    : rails s -e production
 
 *** Heroku
 

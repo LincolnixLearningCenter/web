@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Lincolnix Learning Center (web)</title>
-<!-- 2014-06-25 Wed 05:04 -->
+<!-- 2014-06-25 Wed 05:19 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="AnderSon" />
@@ -428,7 +428,7 @@ end
 </pre>
 </li>
 
-<li><code>[-]</code> Configure email address
+<li><code>[X]</code> Configure email address
 
 <ul class="org-ul">
 <li><code>[X]</code> Development
@@ -478,7 +478,7 @@ GMAIL_PASSWORD=password
 </ul>
 </li>
 
-<li><code>[-]</code> Production
+<li><code>[X]</code> Production
 
 <ul class="org-ul">
 <li><code>[X]</code> Push to Heroku
@@ -513,7 +513,7 @@ heroku config
 </pre>
 </li>
 
-<li><code>[&#xa0;]</code> Edit production.rb
+<li><code>[X]</code> Edit production.rb
 
 <p>
 <a href="./config/environments/production.rb">./config/environments/production.rb</a>
@@ -534,6 +534,22 @@ config.action_mailer.smtp_settings = {
   :enable_starttls_auto =&gt; true
 }
 </pre>
+
+<ul class="org-ul">
+<li><code>[X]</code> git and heroku push
+</li>
+
+<li><code>[X]</code> migrate database
+
+<p>
+I find that I sometimes have to run this a couple times
+</p>
+
+<pre class="example">
+heroku run rake db:migrate
+</pre>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -542,6 +558,7 @@ config.action_mailer.smtp_settings = {
 </ul>
 </div>
 </li>
+
 
 
 <li>Admin<br  /><div class="outline-text-5" id="text-3-1-2-3">
@@ -1302,6 +1319,11 @@ rake routes
 <div class="outline-text-4" id="text-5-1-2">
 <pre class="example">
 rails console
+</pre>
+
+<pre class="example">
+rails s
+rails s -e production
 </pre>
 </div>
 </div>
