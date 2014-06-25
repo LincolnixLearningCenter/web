@@ -5,4 +5,6 @@ class UserMailer < ActionMailer::Base
     @user = user
     @url = 'http://lincolnixweb.herokuapp.com'
     mail(to: @user.email, subject: 'test welcome email')
+  end
+
 end
