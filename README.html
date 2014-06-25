@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Lincolnix Learning Center (web)</title>
-<!-- 2014-06-25 Wed 09:12 -->
+<!-- 2014-06-25 Wed 09:31 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="AnderSon" />
@@ -429,7 +429,7 @@ end
 </pre>
 </li>
 
-<li><code>[X]</code> Configure email address
+<li><code>[-]</code> Configure email address
 
 <ul class="org-ul">
 <li><code>[X]</code> Development
@@ -479,7 +479,65 @@ GMAIL_PASSWORD=password
 </ul>
 </li>
 
-<li><code>[X]</code> Production
+<li><code>[-]</code> Production
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Use Foreman
+
+<p>
+<a href="http://stevechristie.tumblr.com/post/35158776548/how-to-set-up-local-environmental-variables">http://stevechristie.tumblr.com/post/35158776548/how-to-set-up-local-environmental-variables</a>
+</p>
+
+<p>
+Next you will need a solution that will access the local variables 
+prior to starting the application. Heroku recommends using
+Foreman.
+</p>
+
+<p>
+<a href="https://devcenter.heroku.com/articles/config-vars#local-setup">https://devcenter.heroku.com/articles/config-vars#local-setup</a>
+</p>
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Add foreman to development group
+
+<p>
+<a href="./Gemfile">./Gemfile</a>
+</p>
+<pre class="example">
+group :development, :test do
+  gem 'foreman'
+end
+</pre>
+</li>
+
+<li><code>[&#xa0;]</code> Add Procfile
+
+<p>
+<a href="./Procfile">./Procfile</a>
+</p>
+
+<pre class="example">
+web: bundle exec rails s
+</pre>
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Add Procfile to .gitignore
+
+<p>
+<a href="./.gitignore">./.gitignore</a>
+</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
 
 <ul class="org-ul">
 <li><code>[X]</code> Push to Heroku
@@ -549,10 +607,6 @@ I find that I sometimes have to run this a couple times
 <pre class="example">
 heroku run rake db:migrate
 </pre>
-</li>
-</ul>
-</li>
-</ul>
 </li>
 </ul>
 </li>

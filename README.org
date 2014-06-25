@@ -168,7 +168,7 @@
        :   end
        : end
 
-     - [X] Configure email address
+     - [-] Configure email address
 
        - [X] Development
 	 
@@ -199,7 +199,35 @@
 	         : GMAIL_USERNAME=exampleuser@gmail.com
 	         : GMAIL_PASSWORD=password
 
-       - [X] Production
+       - [-] Production
+
+	 - [ ] Use Foreman
+
+	   http://stevechristie.tumblr.com/post/35158776548/how-to-set-up-local-environmental-variables
+
+	   Next you will need a solution that will access the local variables 
+           prior to starting the application. Heroku recommends using
+	   Foreman.
+
+	   https://devcenter.heroku.com/articles/config-vars#local-setup
+
+	   - [ ] Add foreman to development group
+
+	     [[./Gemfile]]
+	         : group :development, :test do
+     	         :   gem 'foreman'
+ 	         : end
+
+	   - [ ] Add Procfile
+
+	     [[./Procfile]]
+
+	     : web: bundle exec rails s
+
+	     - [ ] Add Procfile to .gitignore
+
+	       [[./.gitignore]]
+
 
 	 - [X] Push to Heroku
 
