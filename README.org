@@ -168,7 +168,7 @@
        :   end
        : end
 
-     - [-] Configure email address
+     - [X] Configure email address
 
        - [X] Development
 	 
@@ -199,9 +199,9 @@
 	         : GMAIL_USERNAME=exampleuser@gmail.com
 	         : GMAIL_PASSWORD=password
 
-       - [-] Production
+       - [X] Production
 
-	 - [ ] Use Foreman
+	 - [X] Use Foreman
 
 	   http://stevechristie.tumblr.com/post/35158776548/how-to-set-up-local-environmental-variables
 
@@ -211,20 +211,20 @@
 
 	   https://devcenter.heroku.com/articles/config-vars#local-setup
 
-	   - [ ] Add foreman to development group
+	   - [X] Add foreman to development group
 
 	     [[./Gemfile]]
 	         : group :development, :test do
      	         :   gem 'foreman'
  	         : end
 
-	   - [ ] Add Procfile
+	   - [X] Add Procfile
 
 	     [[./Procfile]]
 
 	     : web: bundle exec rails s
 
-	     - [ ] Add Procfile to .gitignore
+	     - [X] Add Procfile to .gitignore
 
 	       [[./.gitignore]]
 

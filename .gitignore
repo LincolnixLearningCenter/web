@@ -16,6 +16,6 @@
 /tmp
 
 .env
-Procfile
+
 
 herokulog-test.org
