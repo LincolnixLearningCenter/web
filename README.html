@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Lincolnix Learning Center (web)</title>
-<!-- 2014-06-25 Wed 10:29 -->
+<!-- 2014-06-28 Sat 22:00 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="AnderSon" />
@@ -366,6 +366,10 @@ rake db:migrate
 </p>
 
 <p>
+<a href="./config/initializers/devise.rb">./config/initializers/devise.rb</a>
+</p>
+
+<p>
 <a href="http://howilearnedrails.wordpress.com/2014/02/25/setting-up-email-in-a-rails-4-app-with-action-mailer-in-development-and-sendgrid-in-production-using-heroku/">Setting up Email in a Rails 4 app with Action Mailer(dev) and SendGrid(prod) using Heroku</a>
 </p>
 
@@ -381,7 +385,7 @@ rails g mailer UserMailer
 </pre>
 </li>
 
-<li><code>[&#xa0;]</code> Create a function that sends email
+<li><code>[X]</code> Create a function that sends email
 
 <p>
 <a href="./app/mailers/user_mailer.rb">./app/mailers/user_mailer.rb</a>
@@ -412,11 +416,11 @@ in the user<sub>mailer</sub>.rb file.
 </p>
 </li>
 
-<li><code>[&#xa0;]</code> Create/Modify the controller
+<li><code>[X]</code> Create/Modify the controller
 
 <p>
 <a href="./app/controllers/">./app/controllers/</a>
-<a href="./app/controllers/devise/users_controller.rb">./app/controllers/devise/users_controller.rb</a>
+<a href="./app/controllers/users_controller.rb">./app/controllers/users_controller.rb</a>
 </p>
 
 <pre class="example">
@@ -428,6 +432,10 @@ class UsersController &lt; ApplicationController
       if @user.save
         # Tell the UserMailer to send a welcome Email after save
         UserMailer.welcome_email(@user).deliver
+
+        redirect_to(@user, notice: 'User was successfully created. woohoo')
+      else
+        render action: 'new'
       end
     end
   end

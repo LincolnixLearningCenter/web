@@ -127,6 +127,8 @@
      *applications, but cannot seem to duplicate it here. i get no error* 
      *messages, but also no mail sent...*
 
+     [[./config/initializers/devise.rb]]
+
      [[http://howilearnedrails.wordpress.com/2014/02/25/setting-up-email-in-a-rails-4-app-with-action-mailer-in-development-and-sendgrid-in-production-using-heroku/][Setting up Email in a Rails 4 app with Action Mailer(dev) and SendGrid(prod) using Heroku]]
 
      - [X] Generate a UserMailer
@@ -135,7 +137,7 @@
 
        : rails g mailer UserMailer
 
-     - [ ] Create a function that sends email
+     - [X] Create a function that sends email
 
        [[./app/mailers/user_mailer.rb]]
 
@@ -154,10 +156,10 @@
 
        [[./app/views/user_mailer/welcome_email.html.erb]]
 
-     - [ ] Create/Modify the controller
+     - [X] Create/Modify the controller
 
        [[./app/controllers/]]
-       [[./app/controllers/devise/users_controller.rb]]
+       [[./app/controllers/users_controller.rb]]
 
        : class UsersController < ApplicationController
        :   def create
@@ -167,6 +169,10 @@
        :       if @user.save
        :         # Tell the UserMailer to send a welcome Email after save
        :         UserMailer.welcome_email(@user).deliver
+       :
+       :         redirect_to(@user, notice: 'User was successfully created. woohoo')
+       :       else
+       :         render action: 'new'
        :       end
        :     end
        :   end

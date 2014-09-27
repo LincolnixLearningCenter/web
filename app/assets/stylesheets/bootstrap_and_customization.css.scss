@@ -1,15 +1,14 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script|Kaushan+Script|News+Cycle:400,700|BenchNine|Poiret+One|Open+Sans+Condensed:300|Playball|Shadows+Into+Light+Two);
+
+$powder-blue: #B9D6E2;
+
 @import 'bootstrap';
 
-
-
-body {
-    height: 100%;
-    width: 100%;
+body,html {
+    width: 75%;
     margin: auto;
-
-    background: image-url('bg.png') no-repeat;
-    background-color: white;
-    background-size: cover;
+    background: $powder-blue;
+    font-family: 'Roboto';
 }
 
 .milky {
@@ -17,26 +16,81 @@ body {
     opacity: 0.7;
 }
 
-#header {
-    @extend .milky;
-
-    position: fixed;
-    top: 0;
-    width: 100%;
+.hidden {
+    display: none;
 }
 
+#header {
+//    @extend .milky;
+    
+    position: fixed;
+    top: 0;
+    width: 75%;
+    height: 50px;
+    opacity: 0.8;
+    z-index:1;
+//    background: $powder-blue;
+
+    h1 {
+	padding: 15px;
+    }
+}
+
+#navigation {
+    background: pink;
+    width: 100px;
+    height: 100px;
+    float: right;
+    ul {
+	padding: 15px;
+	display: inline;
+	float: right;
+	list-style-type: none;
+    }
+}
+
+
+
+.gradient {
+    @extend .hidden;
+//    background-color: $powder-blue;
+//    background-image: linear-gradient($powder-blue, orange);
+//    background: white;
+//    background: linear-gradient($powder-blue, orange);
+}
 
 .wrapper {
     @extend .milky;
     height: 100%;
-    position: relative;
-    top: 100px;
+    position: absolute;
+    top: 40%;
+    left: 25%;
+}
+
+#welcome {
+    float: right;
+}
+
+.info {
+    text-align: justify;
+    font-size: 2vw;
+    padding: 20px;
 }
 
 #footer {
+    @extend .hidden;
     @extend .milky;
 
     position: fixed;
     bottom: 0px;
     width: 100%;
+}
+
+.logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 35%;
+    padding: 25px;
+    z-index: 4;
 }
